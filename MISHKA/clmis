@@ -1,0 +1,5 @@
+echo $1
+./pre < $1.source > $1.f 
+
+ifort -r8 -O2 -mcmodel=medium -shared-intel -align all -o $1 $1.f  $HOME/lib/ppplib.a -L/shared/hpc/compiler/intel/composerxe-2011.2.137/mkl/lib/intel64 -lmkl_lapack95_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -liomp5
+
