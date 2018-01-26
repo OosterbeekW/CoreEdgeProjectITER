@@ -1,0 +1,32 @@
+&NEWRUN
+  MODE=4, NLTORE = .T., IAS=1
+  NG=201, 
+  IFAST=1,
+  RFOUR(1)=-1.,
+  VFOUR(1)=-9.,
+  q0zyl=-1,
+  NTOR = -31,
+  VSHIFT(1) = (1.0,0), 
+  VSHIFT(2) = (0.3,0), 
+  VSHIFT(3) = (0.1,0), 
+  VSHIFT(4) = (0.03,0), 
+  VSHIFT(5) = (0.01,0), 
+  VSHIFT(6) = (0.003,0), 
+  VSHIFT(7) = (0.001,0), 
+  NSHIFT= 7, 
+  IEQ = 1, DSURF=0., DSURF1=0.,
+  ALPHIN = 1.0,
+  SIG1 = .1,
+  XR1 = .98,
+  RWALL =2.0,   IVAC=1, 
+ 
+  SBEGIN=0.5
+
+  NVPSI = 51, NGV = 51,
+  SIGV = 0.1,
+ &END
+ &NEWLAN    &END
+ &NEWRUN  MODE=0 &END
+ &NEWLAN    &END
+
+

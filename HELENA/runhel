@@ -1,0 +1,46 @@
+#!/bin/csh
+#This is a shell script  
+
+# Input file definition    
+# =====================
+
+set CURDIR=`pwd` 
+
+set tmpdir=$CURDIR/tmp_hel
+
+echo $tmpdir
+
+mkdir $tmpdir
+cd $tmpdir
+
+cp $CURDIR/namelist/$2     fort.10 
+
+# Run
+# ===
+time $CURDIR/$1 
+
+# Output
+# ======
+cp fort.* $CURDIR/allout/
+cp PCUBEQ $CURDIR/allout/
+cp *.TXT $CURDIR/allout/
+
+
+mv fort.20 $CURDIR/output/$2
+mv PCUBEQ  $CURDIR/plot/$2.ps 
+mv fort.12 $CURDIR/mapping/$2
+mv fort.30 $CURDIR/output/restart
+mv fort.* $CURDIR/output/
+
+mv *.TXT $CURDIR/output/
+
+#rm fort.*
+#rm BFIELDS
+#rm EQDSK
+
+
+cd $CURDIR
+
+rm -rv $tmpdir
+
+# End of shell script  

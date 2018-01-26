@@ -1,0 +1,2 @@
+
+ifort -r8 -O1 -align all  $1.f -o $1  $HOME/lib/ppplib.a -L/shared/hpc/compiler/intel/composerxe-2011.2.137/mkl/lib/intel64  -lmkl_lapack95_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -liomp5

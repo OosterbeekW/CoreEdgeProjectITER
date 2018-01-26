@@ -1,0 +1,39 @@
+#!/bin/csh
+#This is a shell script to run CASTOR 
+#
+
+# Input file definition    
+# =====================
+
+set CURDIR=`pwd`
+
+set tmpdir=$CURDIR/tmp_mis
+
+mkdir $tmpdir
+cd $tmpdir
+cp $CURDIR/../HELENA/mapping/$2 fort.12
+cp $CURDIR/namelist/$3 fort.10 
+
+# Run
+# ===
+nice  $CURDIR/$1
+
+# Output
+# ======
+cp fort.* $CURDIR/allout
+cp CASPLOT $CURDIR/allout
+cp Eigenvalues.txt $CURDIR/allout
+
+mv fort.20 $CURDIR/output/$3
+mv CASPLOT $CURDIR/plot/$3.ps 
+rm fort.10
+mv fort.22 $CURDIR/output/$2.22
+rm fort.12
+#rm fort.25
+rm fort.26
+rm fort.24 
+
+mv $tmpdir/Eigenvalues.txt $CURDIR/output/Eigenvalues.txt
+rmdir $tmpdir
+#grep EI $HOME/TEST/MISHKA/output/$3
+# End of shell script gocas 
